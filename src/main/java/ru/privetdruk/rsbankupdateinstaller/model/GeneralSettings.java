@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "GeneralSettings")
-@XmlType(propOrder = {"url", "user", "password", "rsBankFolderPath", "hotFixFolderPath", "backupFolderPath"})
+@XmlType(propOrder = {"description", "user", "password", "rsBankFolderPath", "hotFixFolderPath", "backupFolderPath"})
 public class GeneralSettings {
-    private String url;
+    private String description;
     private String user;
     private String password;
     private String rsBankFolderPath;
@@ -16,16 +16,16 @@ public class GeneralSettings {
     private String host;
 
     public GeneralSettings() {
-        host = url;
+
     }
 
-    public String getUrl() {
-        return url;
+    public String getDescription() {
+        return description;
     }
 
     @XmlElement
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUser() {
@@ -75,7 +75,7 @@ public class GeneralSettings {
 
     public static GeneralSettings createEmptyObject() {
         GeneralSettings emptyObject = new GeneralSettings();
-        emptyObject.url = "";
+        emptyObject.description = "";
         emptyObject.user = "";
         emptyObject.password = "";
         emptyObject.rsBankFolderPath = "";
@@ -88,7 +88,7 @@ public class GeneralSettings {
     @Override
     public String toString() {
         return "GeneralSettings{" +
-                "url='" + url + '\'' +
+                "url='" + description + '\'' +
                 ", user='" + user + '\'' +
                 ", password='" + password + '\'' +
                 ", rsBankFolderPath='" + rsBankFolderPath + '\'' +

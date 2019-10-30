@@ -14,13 +14,11 @@ public class RootLayoutController {
     private void initialize() {
 
     }
-
+    
     @FXML
-    private void handleSettings() throws Exception {
-        boolean saveClicked = application.showSettingsEditDialog(application.getMainSceneController().getGeneralSettings());
-        if (saveClicked) {
+    private void handleSettings() {
+        if (application.showSettingsEditDialog(application.getMainSceneController().getGeneralSettings()))
             application.getMainSceneController().settingsFilling();
-        }
     }
 
     public void setApplication(Application application) {

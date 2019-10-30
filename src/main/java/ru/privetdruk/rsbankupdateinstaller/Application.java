@@ -84,7 +84,9 @@ public class Application extends javafx.application.Application {
             RootLayoutController controller = loader.getController();
             controller.setApplication(this);
 
-            primaryStage.setScene(new Scene(rootLayout));
+            Scene scene = new Scene(rootLayout);
+
+            primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -115,6 +117,7 @@ public class Application extends javafx.application.Application {
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             dialogStage.setScene(scene);
 
             settingsEditDialogController = loader.getController();

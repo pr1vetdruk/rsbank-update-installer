@@ -31,7 +31,7 @@
                         <Label text="URL:" />
                         <Label text="User:" GridPane.rowIndex="1" />
                         <Label text="Password:" GridPane.rowIndex="2" />
-                        <TextField fx:id="urlField" GridPane.columnIndex="1" />
+                        <TextField fx:id="descriptionField" GridPane.columnIndex="1" />
                         <TextField fx:id="userField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>

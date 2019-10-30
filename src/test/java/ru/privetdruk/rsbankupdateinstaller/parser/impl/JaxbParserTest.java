@@ -12,7 +12,7 @@ public class JaxbParserTest {
     private File file;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         parser = new JaxbParser();
         file = new File("settings.xml");
     }
@@ -26,7 +26,7 @@ public class JaxbParserTest {
     @Test
     public void saveObject() throws Exception {
         GeneralSettings generalSettings = new GeneralSettings();
-        generalSettings.setUrl("(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = Sup-OraData1.bryansk.softlab.ru)(PORT = 1522)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = db122c1)))");
+        generalSettings.setDescription("(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = Sup-OraData1.bryansk.softlab.ru)(PORT = 1522)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = db122c1)))");
         generalSettings.setUser("BMW_20190803");
         generalSettings.setPassword("BMW_20190803");
         generalSettings.setRsBankFolderPath("D:\\RSBankV6\\");

@@ -68,7 +68,7 @@ public class MainSceneController {
     }
 
     public void settingsFilling() {
-        urlLabel.setText(generalSettings.getUrl());
+        urlLabel.setText(generalSettings.getDescription());
         userLabel.setText(generalSettings.getUser());
         passwordLabel.setText(generalSettings.getPassword());
         rsBankFolderPathLabel.setText(generalSettings.getRsBankFolderPath());
