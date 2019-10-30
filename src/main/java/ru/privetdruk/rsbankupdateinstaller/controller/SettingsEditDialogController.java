@@ -100,6 +100,6 @@ public class SettingsEditDialogController {
     }
 
     private boolean isTextFieldValid(TextField field) {
-        return field.getText() == null && field.getText().length() != 0;
+        return field.getText() == null || field.getText().length() == 0;
     }
 }
