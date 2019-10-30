@@ -1,8 +1,13 @@
 package ru.privetdruk.rsbankupdateinstaller.model;
 
+import ru.privetdruk.rsbankupdateinstaller.Application;
+import ru.privetdruk.rsbankupdateinstaller.parser.Parser;
+import ru.privetdruk.rsbankupdateinstaller.parser.impl.JaxbParser;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.File;
 
 @XmlRootElement(name = "GeneralSettings")
 @XmlType(propOrder = {"description", "user", "password", "rsBankFolderPath", "hotFixFolderPath", "backupFolderPath"})
@@ -14,6 +19,8 @@ public class GeneralSettings {
     private String hotFixFolderPath;
     private String backupFolderPath;
     private String host;
+
+    private static Parser parserGeneralSettings = new JaxbParser();
 
     public GeneralSettings() {
 
@@ -83,6 +90,29 @@ public class GeneralSettings {
         emptyObject.backupFolderPath = "";
 
         return emptyObject;
+    }
+
+    public static GeneralSettings read() {
+        GeneralSettings generalSettings = GeneralSettings.createEmptyObject();
+        String fileNameGeneralSettings = Application.CONFIG.getProperty("general.filename");
+        try  {
+            generalSettings = (GeneralSettings) parserGeneralSettings.getObject(new File(fileNameGeneralSettings), GeneralSettings.class);
+        } catch (Exception ex) {
+            Application.LOGGER.error("Произошла ошибка при загрузке файла настроек " + fileNameGeneralSettings + " " + ex.getMessage());
+            Application.LOGGER.info("Автоматическое создание файла настроек " + fileNameGeneralSettings);
+            save(generalSettings);
+        }
+        return generalSettings;
+    }
+
+    public static void save(GeneralSettings generalSettings) {
+        String fileNameGeneralSettings = Application.CONFIG.getProperty("general.filename");
+        try {
+            parserGeneralSettings.saveObject(new File(fileNameGeneralSettings), generalSettings);
+            Application.LOGGER.info("Файл настроек " + fileNameGeneralSettings + " успешно сохранен");
+        } catch (Exception ex) {
+            Application.LOGGER.error("Произошла ошибка при создании файла настроек " + fileNameGeneralSettings + " " + ex.getMessage());
+        }
     }
 
     @Override

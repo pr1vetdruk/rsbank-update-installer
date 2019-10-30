@@ -9,8 +9,6 @@ import ru.privetdruk.rsbankupdateinstaller.parser.Parser;
 import ru.privetdruk.rsbankupdateinstaller.parser.impl.JaxbParser;
 import ru.privetdruk.rsbankupdateinstaller.util.TextAreaAppender;
 
-import java.io.File;
-
 public class MainSceneController {
     @FXML
     private TableView<HotFix> hotFixesTable;
@@ -49,15 +47,16 @@ public class MainSceneController {
 
     @FXML
     private void initialize() {
-        parserGeneralSettings = new JaxbParser();
-        generalSettings = GeneralSettings.createEmptyObject();
         TextAreaAppender.textArea = logText;
+
+        parserGeneralSettings = new JaxbParser();
+        generalSettings = GeneralSettings.read();
+
 
         numberColumn.setCellValueFactory(cellData -> cellData.getValue().numberProperty().asObject());
         statusColumn.setCellValueFactory(cellData -> cellData.getValue().statusProperty().asString());
         pathColumn.setCellValueFactory(cellData -> cellData.getValue().pathProperty());
 
-        loadingSettings();
         settingsFilling();
 
     }
@@ -79,21 +78,5 @@ public class MainSceneController {
     @FXML
     private void handleTest() {
         Application.LOGGER.info("TEST");
-    }
-
-    private void loadingSettings() {
-        try  {
-            generalSettings = (GeneralSettings) parserGeneralSettings.getObject(new File(Application.CONFIG.getProperty("general.filename")), GeneralSettings.class);
-        } catch (Exception ex) {
-            Application.LOGGER.error("Произошла ошибка при загрузке файла настроек " + Application.CONFIG.getProperty("general.filename") + " " + ex.getMessage());
-            Application.LOGGER.info("Автоматическое создание файла настроек " + Application.CONFIG.getProperty("general.filename"));
-            try {
-                parserGeneralSettings.saveObject(new File(Application.CONFIG.getProperty("general.filename")), generalSettings);
-                Application.LOGGER.info("Файл настроек успешно создан");
-            } catch (Exception e) {
-                Application.LOGGER.error("Произошла ошибка при создании файла настроек " + Application.CONFIG.getProperty("general.filename") + " " + ex.getMessage());
-            }
-        }
-
     }
 }
