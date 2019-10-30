@@ -1,0 +1,22 @@
+[2019-10-30 13:57:03] INFO  Application:69 - Запуск приложения
+[2019-10-30 13:57:04] ERROR Application:91 - Произошла ошибка при загрузке файла настроек generalSettings/general.xml generalSettings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:57:04] INFO  Application:92 - Автоматическое создание файла настроек generalSettings/general.xml
+[2019-10-30 13:57:04] ERROR Application:97 - Произошла ошибка при создании файла настроек generalSettings/general.xml generalSettings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:57:33] INFO  Application:69 - Запуск приложения
+[2019-10-30 13:57:34] ERROR Application:91 - Произошла ошибка при загрузке файла настроек /settings/general.xml \settings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:57:34] INFO  Application:92 - Автоматическое создание файла настроек /settings/general.xml
+[2019-10-30 13:57:34] ERROR Application:97 - Произошла ошибка при создании файла настроек /settings/general.xml \settings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:57:52] INFO  Application:69 - Запуск приложения
+[2019-10-30 13:57:53] ERROR Application:91 - Произошла ошибка при загрузке файла настроек /settings/general.xml \settings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:57:53] INFO  Application:92 - Автоматическое создание файла настроек /settings/general.xml
+[2019-10-30 13:57:53] ERROR Application:97 - Произошла ошибка при создании файла настроек /settings/general.xml \settings\general.xml (Системе не удается найти указанный путь)
+[2019-10-30 13:58:06] INFO  Application:69 - Запуск приложения
+[2019-10-30 13:58:07] ERROR Application:91 - Произошла ошибка при загрузке файла настроек settings/general.xml settings\general.xml (Не удается найти указанный файл)
+[2019-10-30 13:58:07] INFO  Application:92 - Автоматическое создание файла настроек settings/general.xml
+[2019-10-30 13:58:07] INFO  Application:95 - Файл настроек успешно создан
+[2019-10-30 13:59:41] INFO  Application:69 - Запуск приложения
+[2019-10-30 14:03:06] INFO  Application:69 - Запуск приложения
+[2019-10-30 14:04:44] INFO  Application:69 - Запуск приложения
+[2019-10-30 14:05:22] INFO  Application:69 - Запуск приложения
+[2019-10-30 14:05:41] INFO  Application:69 - Запуск приложения
+[2019-10-30 14:07:39] INFO  Application:69 - Запуск приложения
