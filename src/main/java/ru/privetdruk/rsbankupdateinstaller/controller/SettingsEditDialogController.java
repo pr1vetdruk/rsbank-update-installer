@@ -68,6 +68,8 @@ public class SettingsEditDialogController {
             generalSettings.setHotFixFolderPath(hotFixFolderPathField.getText());
             generalSettings.setBackupFolderPath(backupFolderPathField.getText());
 
+            generalSettings.save();
+
             saveClicked = true;
             dialogStage.close();
         }

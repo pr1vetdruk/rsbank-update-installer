@@ -80,7 +80,7 @@ public class GeneralSettings {
         this.backupFolderPath = backupFolderPath;
     }
 
-    public static GeneralSettings createEmptyObject() {
+    private static GeneralSettings createEmptyObject() {
         GeneralSettings emptyObject = new GeneralSettings();
         emptyObject.description = "";
         emptyObject.user = "";
@@ -97,18 +97,19 @@ public class GeneralSettings {
         String fileNameGeneralSettings = Application.CONFIG.getProperty("general.filename");
         try  {
             generalSettings = (GeneralSettings) parserGeneralSettings.getObject(new File(fileNameGeneralSettings), GeneralSettings.class);
+            Application.LOGGER.info("Файл настроек " + fileNameGeneralSettings + " успешно загружен");
         } catch (Exception ex) {
             Application.LOGGER.error("Произошла ошибка при загрузке файла настроек " + fileNameGeneralSettings + " " + ex.getMessage());
             Application.LOGGER.info("Автоматическое создание файла настроек " + fileNameGeneralSettings);
-            save(generalSettings);
+            generalSettings.save();
         }
         return generalSettings;
     }
 
-    public static void save(GeneralSettings generalSettings) {
+    public void save() {
         String fileNameGeneralSettings = Application.CONFIG.getProperty("general.filename");
         try {
-            parserGeneralSettings.saveObject(new File(fileNameGeneralSettings), generalSettings);
+            parserGeneralSettings.saveObject(new File(fileNameGeneralSettings), this);
             Application.LOGGER.info("Файл настроек " + fileNameGeneralSettings + " успешно сохранен");
         } catch (Exception ex) {
             Application.LOGGER.error("Произошла ошибка при создании файла настроек " + fileNameGeneralSettings + " " + ex.getMessage());
